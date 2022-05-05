@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-be">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="icon" href="./imagem/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Pomodoro Timer</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <a class="navbar-brand font-weight-bold text-white" href="index.html">Pomodoro Timer</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a onclick="openText()" class="nav-link font-weight-bold text-white" href="#">Sobre</a>
+                </li>
+        </div>
+        <div class="ml-auto">
+            <a onclick="pauseMusic()">
+                <i id="pause" class="fa fa-pause text-white" style="font-size:25pt; display: none;" aria-hidden="true"></i>
+            </a>
+            <a onclick="execMusic()">
+                <i id="play" class="fa fa-play text-white" style="font-size:25pt; display: none;" aria-hidden="true"></i>
+            </a>
+            <audio id="music" src="./audio/lo-fi.mp3" type="audio/mpeg"></audio>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="text" style="display: none;">
+            <p style="text-align: center; font-size: 18px;">Você conheçe a técnica Pomodoro?<p> 
+            <span> Está técnica foi desenvolvida em 1988 pelo italiano Francisco Cirillo, é um método de gestão de tempo que pode ser aplicado para diversas tarefas!<br><br>
+            Passo a Passo: <br>
+            1. Ajustar o cronômetro para 25 minutos (campo acão)<br>
+            2. Ajustar o tempo de descanso para 5 minutos (campo pausa)<br>
+            3. Ajustar a quantidade de sessão para 4 (campo sessões)<br>
+            4. Iniciar a tarefa.<br>
+            5. Ao final do ciclo de 4 sessões é indicado um tempo de descanso entre 10 a 30 minutos.
+            <br>
+            Você pode adaptar o tempo de tarefa, minutos de descanso e quantidade de sessões de acordo com a sua necessidade!<br> <br>
+            Está técnica tem me ajudado a focar nos meus estudos e a otimizar o meu tempo. Espero que possa te ajudar também! <br>
+            Há já ia me esquecendo, quando inicia a sessão toca uma musica Lo-fi &#x1F60E;&#x1F3A7; que me ajuda na concentração. Mas se preferir o silêncio pode pausar no icone no canto superior direito.
+            <br>
+            <button type="button" class="btn btn-primary btn-sm">Começar!</button>
+            </span>
+         </div>
+        <div class="row d-flex justify-content-center mt-2 mb-2">
+
+            <div class="col-md-8">
+
+                <div id="set" class="row d-flex justify-content-center">
+
+                    <div class="col">
+                        
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-3 d-flex justify-content-center">
+                               <div class="form-group">
+                                  <label class="d-flex justify-content-center text-info font-weight-bold"
+                                     for="acao">Ação</label>
+                                  <input type="number" class="form-control form-control-lg bg-dark border-0 shadow text-white"
+                                     id="acao">
+                                  <small class="text-danger" id='erro_acao'></small>
+                               </div>
+                            </div>
+                            <div class="col-md-3 d-flex justify-content-center">
+                               <div class="form-group">
+                                  <label class="d-flex justify-content-center text-info font-weight-bold"
+                                     for="pausa">Pausa</label>
+                                  <input type="number" class="form-control form-control-lg bg-dark border-0 shadow text-white"
+                                     id="pausa">
+                                  <small class="text-danger" id='erro_pausa'></small>
+                               </div>
+                            </div>
+                            <div class="col-md-3 d-flex justify-content-center">
+                               <div class="form-group">
+                                  <label class="d-flex justify-content-center text-info font-weight-bold"
+                                     for="sessoes">Sessões</label>
+                                  <input type="number" class="form-control form-control-lg bg-dark border-0 shadow text-white"
+                                     id="sessoes">
+                                  <small class="text-danger" id='erro_sessoes'></small>
+                               </div>
+                            </div>
+                         </div>
+
+                        <div class="row mt-5 mb-5 d-flex justify-content-center">
+                            <div class="col-md-9">
+                                <button onclick="iniciar()" class="btn btn-info shadow btn-lg btn-block">Iniciar</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div id="clock" class="mt-0 d-flex justify-content-center"  >
+
+            <div class="row mb-3">
+                <div class="col">
+                    <h3 id="titulo" class="text-center"></h3>
+                </div>
+            </div>
+            
+
+            <div class="row shadow time">
+                <div class="col-5 p-0">
+                    <h2 id="minutes"></h2>
+                </div>
+
+                <div class="col-1 p-0 d-flex justify-content-center">
+                    <h2>:</h2>
+                </div>
+
+                <div class="col-5 pl-0">
+                    <h2 id="seconds"></h2>
+                </div>
+            </div>
+
+            <div class="row  mt-2">
+                <div class="col">
+                    <h3 id="texto_sessao" class="text-center text-secondary"></h3>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="fim" style="display: none;">
+            <h1 class="text-success text-center">Parabéns! Você finalizou suas tarefas.</h1>
+            <div class="row mt-5 mb-5 d-flex justify-content-center">
+               <div class="col-md-9 d-flex justify-content-center">
+                  <a href="./index.html" class="btn btn-info shadow btn-lg">Inicio</a>
+               </div>
+            </div>
+         </div>
+
+    </div>
+
+
+    <script src="./script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
