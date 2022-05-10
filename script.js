@@ -2,6 +2,7 @@ let acao = document.getElementById('acao')
 let pausa = document.getElementById('pausa')
 let sessoes = document.getElementById('sessoes')
 let segundos
+let botao = document.getElementById('botao')
 
 var sino = new Audio("./audio/bell.mp3")
 var volta = new Audio("./audio/volta.mp3")
@@ -34,8 +35,8 @@ function iniciar() {
 
         document.getElementById('set').style.setProperty('display', 'none', 'important')
         document.getElementById('clock').style.setProperty('display', 'block', 'important')
-
-        funcaoAcao()
+        
+        funcaoAcao()   
     }
 }
 
@@ -61,7 +62,7 @@ function funcaoAcao() {
 
     document.getElementById('minutes').innerHTML = minutos
     document.getElementById('seconds').innerHTML = segundos
-
+  
     var minutoIntervalo = setInterval(minTimer, 60000)
     var segundoInvervalo = setInterval(segTimer, 1000)
 
@@ -87,7 +88,8 @@ function funcaoAcao() {
         }
 
     }
-
+    document.getElementById('botao').disabled=true;
+  
 }
 
  
@@ -143,7 +145,7 @@ function funcaoPausa() {
         }
 
     }
-
+   
 }
 
 function execMusic() {
@@ -162,4 +164,10 @@ function pauseMusic() {
 function openText() {
     text.style.setProperty('display', 'block', 'important')
     document.getElementById('set').style.setProperty('display', 'none', 'important')
+
+}
+
+function fecharText(){
+    text.style.setProperty('display', 'none', 'important')
+    document.getElementById('set').style.setProperty('display', 'block', 'important')
 }

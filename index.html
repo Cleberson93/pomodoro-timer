@@ -16,11 +16,8 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <a class="navbar-brand font-weight-bold text-white" href="index.html">Pomodoro Timer</a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a onclick="openText()" class="nav-link font-weight-bold text-white" href="#">Sobre</a>
-                </li>
+        <div>
+        <button id="botao" onclick="openText()" type="button" class="btn btn-link text-white font-weight-bold" style="text-decoration: none;">Sobre</button>
         </div>
         <div class="ml-auto">
             <a onclick="pauseMusic()">
@@ -35,23 +32,23 @@
 
     <div class="container">
         <div id="text" style="display: none;">
-            <p style="text-align: center; font-size: 18px;">Você conheçe a técnica Pomodoro?<p> 
-            <span> Está técnica foi desenvolvida em 1988 pelo italiano Francisco Cirillo, é um método de gestão de tempo que pode ser aplicado para diversas tarefas!<br><br>
+            <p style="text-align: center; font-size: 18px;"><br>&#x1F345;Você conheçe a técnica Pomodoro?&#x1F345;<p> 
+            <span> Está técnica foi desenvolvida em 1988 pelo italiano Francisco Cirillo, <br>é um método de gestão de tempo que pode ser aplicado para diversas tarefas!<br><br>
             Passo a Passo: <br>
-            1. Ajustar o cronômetro para 25 minutos (campo acão)<br>
-            2. Ajustar o tempo de descanso para 5 minutos (campo pausa)<br>
-            3. Ajustar a quantidade de sessão para 4 (campo sessões)<br>
-            4. Iniciar a tarefa.<br>
-            5. Ao final do ciclo de 4 sessões é indicado um tempo de descanso entre 10 a 30 minutos.
-            <br>
-            Você pode adaptar o tempo de tarefa, minutos de descanso e quantidade de sessões de acordo com a sua necessidade!<br> <br>
+            &#x1F345; Ajustar o cronômetro para 25 minutos (campo acão)<br>
+            &#x1F345; Ajustar o tempo de descanso para 5 minutos (campo pausa)<br>
+            &#x1F345; Ajustar a quantidade de sessão para 4 (campo sessões)<br>
+            &#x1F345; Iniciar a tarefa.<br>
+            &#x1F345; Ao final do ciclo de 4 sessões é indicado <br> um tempo de descanso entre 10 a 30 minutos.
+            <br><br>
+            Você pode adaptar o tempo de tarefa, minutos de descanso <br> e quantidade de sessões de acordo com a sua necessidade!<br> <br>
             Está técnica tem me ajudado a focar nos meus estudos e a otimizar o meu tempo. Espero que possa te ajudar também! <br>
-            Há já ia me esquecendo, quando inicia a sessão toca uma musica Lo-fi &#x1F60E;&#x1F3A7; que me ajuda na concentração. Mas se preferir o silêncio pode pausar no icone no canto superior direito.
-            <br>
-            <button type="button" class="btn btn-primary btn-sm">Começar!</button>
+            Há já ia me esquecendo, quando inicia a sessão toca uma musica Lo-fi &#x1F60E;&#x1F3A7; <br>que me ajuda na concentração, mas se preferir o silêncio pode pausar no icone no canto superior direito.
+            <br><br><br>
+            <button onclick="fecharText()" type="button" class="btn btn-primary btn-sm">Começar!</button>
             </span>
          </div>
-        <div class="row d-flex justify-content-center mt-2 mb-2">
+        <div class="row d-flex justify-content-center mt-5 mb-5">
 
             <div class="col-md-8">
 
@@ -145,7 +142,7 @@
     </div>
 
 
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
