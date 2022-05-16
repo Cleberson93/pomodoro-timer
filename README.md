@@ -1,7 +1,7 @@
 # Pomodoro-timer
 
 Projeto consiste em um relógio para o método pomodoro, método de gerenciamento de tarefas.
-Projeto desenvolvido em Html, CSS e Javascript.
+Projeto desenvolvido em Html, BootStrap e Javascript.
 
 
 Para executar o projeto basta fazer um clone do repositório ou baixar em arquivo zip.
