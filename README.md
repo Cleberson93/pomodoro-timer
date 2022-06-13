@@ -9,4 +9,4 @@ Abrir no Vscode e clicar em open live server se tiver a extensão;
 Ou, abrir o arquivo Index.html no navegador de preferência.
 
 
-Logo estarei disponibilizando ele no Heroku.
+Link do projeto: https://cleberson93.github.io/pomodoro-timer/
